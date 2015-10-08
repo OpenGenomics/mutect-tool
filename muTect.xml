@@ -1,9 +1,9 @@
-<tool id="muTect" name="muTect" version="1.0.0">
+<tool id="mutect" name="MuTect" version="1.0.0">
     <description>identify somatic point mutations</description>
     <requirements>
         <container type="docker">mutect:1.1.5</container>
     </requirements>
-    <command interpreter="python">muTect.py
+    <command interpreter="python">mutect.py
 --reference-sequence $reference
 #if str($cosmic) != "":
     --cosmic $cosmic
