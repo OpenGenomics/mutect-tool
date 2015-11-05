@@ -34,28 +34,49 @@ inputs:
       prefix: --dbsnp
   - id: "#tumor_lod"
     type: float
-    default: 10
+    default: 6.3
     inputBinding:
       prefix: --tumor_lod
   - id: "#initial_tumor_lod"
     type: float
+    default: 4.0
     inputBinding:
       prefix: --initial_tumor_lod
   - id: "#out"
     type: string
+    default: call_stats.txt
     inputBinding:
       prefix: --out
   - id: "#coverage_file"
     type: string
+    default: coverage.wig.txt
     inputBinding:
       prefix: --coverage_file
   - id: "#vcf"
     type: string
+    default: mutations.vcf
     inputBinding:
       prefix: --vcf
 
 outputs:
+  - id: "#coverage"
+    type: File
+    outputBinding:
+      glob:
+        engine: "cwl:JsonPointer"
+        script: job/coverage_file
+
+  - id: "#call_stats"
+    type: File
+    outputBinding:
+      glob:
+        engine: "cwl:JsonPointer"
+        script: job/out
+        
   - id: "#mutations"
     type: File
     outputBinding:
-      glob: .vcf
+      glob:
+        engine: "cwl:JsonPointer"
+        script: job/vcf
+        
