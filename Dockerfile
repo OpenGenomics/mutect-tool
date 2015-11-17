@@ -1,5 +1,5 @@
 
-FROM java
+FROM java:7
 
 RUN apt-get update
 RUN apt-get install -y zip wget
