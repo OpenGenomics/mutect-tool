@@ -55,7 +55,7 @@ ${JAVA}
 -Xmx2g -XX:ParallelGCThreads=2 -jar ${MUTECT}
 --analysis_type MuTect
 --reference_sequence ${REF_SEQ}
---intervals ${INTERVAL}
+--intervals '${INTERVAL}'
 --input_file:normal ${NORMAL_BAM}
 --input_file:tumor ${TUMOR_BAM}
 --out ${OUTPUT_BASE}.${BLOCK_NUM}.out
