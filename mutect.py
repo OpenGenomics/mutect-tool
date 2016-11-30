@@ -199,7 +199,7 @@ if __name__ == "__main__":
     parser.add_argument("--input_file:normal", required=True)
     parser.add_argument("--input_file:index:tumor")
     parser.add_argument("--input_file:tumor", required=True)
-    parser.add_argument("--reference-sequence", required=True)
+    parser.add_argument("--reference_sequence", required=True)
     parser.add_argument("--ncpus", type=int, default=8)
     parser.add_argument("--workdir", default="/tmp")
     parser.add_argument("--cosmic")

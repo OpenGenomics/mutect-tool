@@ -20,6 +20,7 @@ RUN wget https://github.com/broadinstitute/picard/releases/download/1.122/picard
 
 RUN unzip muTect-1.1.5-bin.zip
 RUN unzip picard-tools-1.122.zip
+COPY mutect.py /opt/
 
 # Link the picard tools to /opt/picard
 RUN ln -s picard-tools-1.122 picard
