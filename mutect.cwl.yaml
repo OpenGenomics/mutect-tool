@@ -33,7 +33,8 @@ inputs:
     type: File
     inputBinding:
       prefix: --dbsnp
-    secondaryFiles: .tbi
+    secondaryFiles: 
+      - .tbi
   - id: "#tumor_lod"
     type: float
     default: 6.3
