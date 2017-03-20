@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from __future__ import print_function
+
 import sys
 import re
 import os
@@ -25,12 +27,19 @@ def fai_chunk(path, blocksize):
             yield (seq, i, min(i+blocksize-1, l))
 
 def cmd_caller(cmd):
-    logging.info("RUNNING: %s" % (cmd))
-    print "running", cmd
-    p = subprocess.Popen(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    logging.info("RUNNING: ", cmd)
+    p = subprocess.Popen(
+        cmd,
+        shell=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE)
     stdout, stderr = p.communicate()
-    if len(stderr):
-        print stderr
+    if p.returncode != 0:
+        print("Failed job: %s", cmd, file=sys.stderr)
+        print("--stdout--", file=sys.stderr)
+        print(stdout, file=sys.stderr)
+        print("--stderr--", file=sys.stderr)
+        print(stderr, file=sys.stderr)
     return p.returncode
 
 def cmds_runner(cmds, cpus):
