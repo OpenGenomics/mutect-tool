@@ -10,31 +10,34 @@ inputs:
     type: File
     inputBinding:
       prefix: --input_file:tumor
-    secondaryFiles:
-      - .bai
+  - id: "#tumor_index"
+    type: File
   - id: "#normal"
     type: File
     inputBinding:
       prefix: --input_file:normal
-    secondaryFiles:
-      - .bai
+  - id: "#normal_index"
+    type: File
   - id: "#reference"
     type: File
     inputBinding:
       prefix: --reference_sequence
-    secondaryFiles:
-      - .fai
-      - ^.dict
+  - id: "#reference_index"
+    type: File
+  - id: "#reference_dict"
+    type: File
   - id: "#cosmic"
     type: File
     inputBinding:
       prefix: --cosmic
-    secondaryFiles: .tbi
+  - id: "#cosmic_index"
+    type: File
   - id: "#dbsnp"
     type: File
     inputBinding:
       prefix: --dbsnp
-    secondaryFiles: .tbi
+  - id: "#dbsnp_index"
+    type: File
   - id: "#tumor_lod"
     type: float
     default: 6.3
