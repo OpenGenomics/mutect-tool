@@ -47,17 +47,17 @@ inputs:
       prefix: --initial_tumor_lod
   - id: "#out"
     type: string
-    default: call_stats.txt
+    default: mutect_call_stats.txt
     inputBinding:
       prefix: --out
   - id: "#coverage_file"
     type: string
-    default: coverage.wig.txt
+    default: mutect_coverage.wig.txt
     inputBinding:
       prefix: --coverage_file
   - id: "#vcf"
     type: string
-    default: mutations.vcf
+    default: mutect.vcf
     inputBinding:
       prefix: --vcf
 
@@ -78,5 +78,3 @@ outputs:
     type: File
     outputBinding:
       glob: $(inputs.vcf)
-
-        
