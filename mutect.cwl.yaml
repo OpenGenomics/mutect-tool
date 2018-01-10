@@ -60,6 +60,11 @@ inputs:
     default: mutect.vcf
     inputBinding:
       prefix: --vcf
+  - id: ncpus
+    type: int
+    default: 8
+    inputBinding:
+      prefix: "--ncpus"
 
 outputs:
   - id: coverage
@@ -69,7 +74,7 @@ outputs:
   - id: call_stats
     type: File
     outputBinding:
-      glob: $(inputs.out)        
+      glob: $(inputs.out)
   - id: mutations
     type: File
     outputBinding:
