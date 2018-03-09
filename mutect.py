@@ -61,7 +61,7 @@ def call_cmd_iter(java, mutect, ref_seq, block_size, tumor_bam, normal_bam,
 
     template = Template("""
 ${JAVA}
--Xmx2g -XX:ParallelGCThreads=2 -jar ${MUTECT}
+-Xmx7g -XX:ParallelGCThreads=2 -jar ${MUTECT}
 --analysis_type MuTect
 --reference_sequence ${REF_SEQ}
 --intervals '${INTERVAL}'
